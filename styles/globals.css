@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html,
+body {
+  background-color: #fffff8;
+}
 
 .loading {
   display: inline-flex;
@@ -10,7 +14,14 @@
 .loading .spacer {
   margin-right: 2px;
 }
-
+.outline {
+  color: white;
+  text-shadow:
+  2px 2px 0 #000,
+  1px 1px 0 #000,
+  3px -1px 0 #000,
+  -1px -1px 0 #000;
+}
 .loading span {
   animation-name: blink;
   animation-duration: 1.4s;

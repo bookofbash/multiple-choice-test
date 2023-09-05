@@ -7,6 +7,21 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
+const requestedOutputStructure = [
+  {
+    Question: 'What is the main idea of the article?',
+    Answers: [
+      {
+        1: 'How to be a good friend',
+        2: 'Who killed Rodger Rabbit',
+        3: 'Where the wild things are',
+        4: 'Don\'t lie to your parents'
+      }
+    ],
+    Correct: 1
+  }
+]
+
 // Set the runtime to edge for best performance
 export const runtime = 'edge';
 
@@ -20,20 +35,19 @@ export async function POST(req: Request) {
     messages: [
       {
         role: 'user',
-        content: `Generate 2 ${vibe} twitter biographies with no hashtags and clearly labeled "1." and "2.". ${
-          vibe === 'Funny'
-            ? "Make sure there is a joke in there and it's a little ridiculous."
-            : null
-        }
-          Make sure each generated biography is less than 160 characters, has short sentences that are found in Twitter bios, and base them on this context: ${bio}${
+        content: `Generate 5 ${vibe} Multiple choice questions clearly labeled "1.", "2.", "3.", "4", and "5."
+          Make sure each generated question is less than 160 characters, follow tis structure ${requestedOutputStructure} and you mustbase them on this context: ${bio}${
           bio.slice(-1) === '.' ? '' : '.'
         }`,
       },
     ],
   });
+    
 
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
+
+
   // Respond with the stream
   return new StreamingTextResponse(stream);
 }
