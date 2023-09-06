@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       {
         role: 'user',
         content: `Generate 5 ${vibe} Multiple choice questions clearly labeled "1.", "2.", "3.", "4", and "5."
-          Make sure each generated question is less than 160 characters, follow tis structure ${requestedOutputStructure} and you mustbase them on this context: ${bio}${
+          Make sure each generated question is less than 160 characters, follow this structure ${requestedOutputStructure} and you mustbase them on this context: ${bio}${
           bio.slice(-1) === '.' ? '' : '.'
         }`,
       },
