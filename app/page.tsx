@@ -110,42 +110,39 @@ export default function Page() {
           {generatedBios && (
             <>
               <div>
-                <h2
-                  className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto"
-                  ref={bioRef}
-                >
+                <h2 className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto" ref={bioRef}>
                   Your Multiple Choice Test
                 </h2>
               </div>
               <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
-  {generatedBios
-    .split(/\n(?=\d+\.\s*)/)
-    .filter(Boolean)
-    .map((generatedBio, index) => {
-      console.log(generatedBio)
-      return (
-        <div
-          className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
-          onClick={() => {
-            navigator.clipboard.writeText(generatedBio);
-            toast('Bio copied to clipboard', {
-              icon: '✂️',
-            });
-          }}
-          key={index}
-        >
-          <p>
-            {generatedBio.split('\n').map((line, idx) => (
-              <span key={idx}>
-                {line}
-                <br />
-              </span>
-            ))}
-          </p>
-        </div>
-      );
-    })}
-</div>
+                {generatedBios
+                  .split(/\n(?=\d+\.\s*)/)
+                  .filter(Boolean)
+                  .map((generatedBio, index) => {
+                    console.log(generatedBio)
+                    return (
+                      <div
+                        className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
+                        onClick={() => {
+                          navigator.clipboard.writeText(generatedBio);
+                          toast('Bio copied to clipboard', {
+                            icon: '✂️',
+                          });
+                        }}
+                        key={index}
+                      >
+                        <p>
+                          {generatedBio.split('\n').map((line, idx) => (
+                            <span key={idx}>
+                              {line}
+                              <br />
+                            </span>
+                          ))}
+                        </p>
+                      </div>
+                    );
+                  })}
+              </div>
 
 
             </>
