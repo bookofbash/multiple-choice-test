@@ -44,7 +44,7 @@ export default function Page() {
           ConversationDesign.ai <span className="outline">QuizCraft</span>
         </h1>
         <p className="text-slate-500 mt-5">Generate multiple-choice tests using AI</p>
-        <p className="text-slate-500 mt-5">7,142 multiple-choice tests generated so far.</p>
+        <p className="text-slate-500 mt-5">We're learning to use LLMs in public. This is a demo app and still has quite a few bugs.</p>
         <form className="max-w-xl w-full" onSubmit={onSubmit}>
           <div className="flex mt-10 items-center space-x-3">
             <Image
@@ -125,7 +125,7 @@ export default function Page() {
                         className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
                         onClick={() => {
                           navigator.clipboard.writeText(generatedBio);
-                          toast('Bio copied to clipboard', {
+                          toast('Question copied to clipboard', {
                             icon: '✂️',
                           });
                         }}

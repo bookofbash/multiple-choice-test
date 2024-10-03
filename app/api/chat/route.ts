@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     messages: [
       {
         role: 'user',
-        content: `Please create 5 multiple-choice questions based on the content provided. Each question should be less than 160 characters and labeled from "1." to "5.". Follow the structure indicated by ${requestedOutputStructure}. Ensure the questions are appropriate for students in ${vibe} using the content: ${bio}${bio.slice(-1) === '.' ? '' : '.'}
+        content: `Create 5 multiple-choice questions based on ${bio}${bio.slice(-1) === '.' ? '' : '.'}. Each question should be less than 160 characters and labeled from "1." to "5.". Follow the structure indicated by ${requestedOutputStructure}. Ensure the questions are appropriate for students in ${vibe}.
         `,
       },
     ],

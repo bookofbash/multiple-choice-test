@@ -12,9 +12,17 @@ export default function Footer() {
         >
           Bashir Harrell{' '}
         </a>
+        with{' '}
+        <a
+          href="https://nextjs.org/"
+          target="_blank"
+          className="font-bold hover:underline transition underline-offset-2"
+        >
+          Next.js{' '}
+        </a>
         and{' '}
         <a
-          href="https://conversationdesign-ai-2-0.vercel.app/"
+          href="https://conversationdesign.ai"
           target="_blank"
           className="font-bold hover:underline transition underline-offset-2"
         >
